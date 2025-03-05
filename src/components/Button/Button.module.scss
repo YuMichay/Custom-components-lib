@@ -1,0 +1,124 @@
+// BASE
+
+button { 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// VARIANT
+
+.text, .contained {
+  border: none;
+}
+
+.text, .outlined {
+  background-color: transparent;
+}
+
+.text:hover {
+  background-color: rgba(74, 74, 74, 0.4);
+}
+
+.contained:hover {
+  color: white;
+  background-color: rgb(113, 113, 113);
+  box-shadow: 0px 5px 10px -5px #000000, 5px 5px 10px 5px rgba(0,0,0,0);
+  -webkit-box-shadow: 0px 5px 10px -5px #000000, 5px 5px 10px 5px rgba(0,0,0,0); 
+}
+
+.outlined {
+  border: 2px solid;
+  border-color: rgb(113, 113, 113);
+}
+
+.outlined:hover {
+  border-color: rgb(74, 74, 74);
+  background-color: rgba(113, 113, 113, 0.3);
+}
+
+// COLOR
+
+$colors: (
+  primary: #90caf9,
+  secondary: #ce93d8,
+  success: #66bb6a,
+  error: #f44336,
+  info: #e0ce28,
+  warning: #f47c05
+);
+
+@each $name, $color in $colors {
+  .#{$name} {
+    &.text,
+    &.outlined {
+      color: $color;
+    }
+
+    &.text:hover {
+      background-color: rgba($color, 0.4);
+    }
+
+    &.contained {
+      color: white;
+      background-color: $color;
+    }
+
+    &.contained:hover {
+      background-color: darken($color, 10%);
+    }
+
+    &.outlined {
+      border-color: $color;
+    }
+
+    &.outlined:hover {
+      border: 2px solid darken($color, 10%);
+      background-color: rgba($color, 0.3);
+    }
+  }
+}
+
+// SIZE
+
+.small {
+  min-width: 58px;
+  height: 30.6px;
+  padding: 4px 6px;
+  font-size: 0.675rem;
+}
+
+.medium {
+  min-width: 64px;
+  height: 36.5px;
+  padding: 6px 8px;
+  font-size: 0.875rem;
+}
+
+.large {
+  min-width: 72px;
+  height: 42.4px;
+  padding: 8px 10px;
+  font-size: 1rem;
+}
+
+// FULLWIDTH
+
+.fullWidth {
+  width: 100%;
+}
