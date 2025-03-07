@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { ButtonProps } from "../../types/types";
 import * as styles from "./Button.module.scss";
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   children = "Button",
   type = "button",
   onClick = () => console.log("Button clicked"),
@@ -13,7 +13,7 @@ const Button = ({
   color = "primary",
   loading = false,
   fullWidth = false,
-}: ButtonProps) => {
+}): ReactNode => {
   if (!children) {
     children = variant.slice(0, 1).toUpperCase() + variant.slice(1);
   }

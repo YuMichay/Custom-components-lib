@@ -1,0 +1,72 @@
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import { TextFieldProps } from "@/types/types";
+import * as styles from "./TextField.module.scss";
+
+const TextField: React.FC<TextFieldProps> = ({
+  value = "",
+  defaultValue = "",
+  type = "text",
+  label = "Text field",
+  helpText = "",
+  placeholder = "",
+  onChange = () => console.log("Change"),
+  disabled = false,
+  size = "medium",
+  variant = "outlined",
+  fullWidth = false,
+  maxLength = 20,
+  required = false,
+  autoFocus = false,
+  error = false,
+  color = "primary",
+}) => {
+  const [hasValue, setHasValue] = useState(!!value || !!defaultValue || !!placeholder);
+  const [isTouched, setIsTouched] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setHasValue(!!value || !!defaultValue || !!placeholder);
+  }, [value, defaultValue, placeholder]);
+
+  useEffect(() => {
+    if (autoFocus && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [autoFocus]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.target.focus();
+
+    onChange(event);
+    setHasValue(!!event.target.value);
+    setIsTouched(true);
+  };
+
+  const isValid = !required || (required && hasValue);
+
+  return (
+    <div
+      className={`${styles.textField} ${styles[variant]} ${error || (!isValid && isTouched) ? styles["error"] : styles[color]} ${styles[size]} ${
+        fullWidth ? styles.fullWidth : ""
+      } ${error || (!isValid && isTouched) ? styles.errorField : ""} ${disabled ? styles.disabled : ""} ${
+        hasValue ? styles.hasValue : ""
+      }`}
+    >
+      <input
+        ref={inputRef}
+        type={type}
+        {...(value ? { value } : { defaultValue })}
+        placeholder={placeholder}
+        onChange={handleChange}
+        disabled={disabled}
+        maxLength={maxLength}
+        required={required}
+        autoFocus={autoFocus}
+      />
+      <label>{required ? `${label}*` : label}</label>
+      {error && helpText && <span>{helpText}</span>}
+    </div>
+  );
+};
+
+export default TextField;

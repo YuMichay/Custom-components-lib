@@ -13,8 +13,11 @@ export const Basic: Story = {
   args: {
     children: "Button",
     type: "button",
-    variant: "contained",
-    size: "medium",
     disabled: false,
+    size: "medium",
+    variant: "contained",
+    color: "primary",
+    loading: false,
+    fullWidth: false,
   },
 };

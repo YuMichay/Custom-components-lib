@@ -1,0 +1,217 @@
+@use "sass:color";
+@use "sass:map";
+
+$colors: (
+  primary: #90caf9,
+  secondary: #ce93d8,
+  success: #66bb6a,
+  error: #f44336,
+  info: #e0ce28,
+  warning: #f47c05
+);
+
+$border-color: #c4c4c4;
+$hover-color: #9d9d9d;
+
+// BASE
+
+.textField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+
+  label {
+    position: absolute;
+    color: $border-color;
+    transition: 0.2s;
+    pointer-events: none;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    transition: 0.2s;
+  }
+
+  &.disabled {
+    label {
+      opacity: 0.6;
+    }
+    input {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  // VARIANT
+
+  &.outlined {
+    input {
+      border: 2px solid $border-color;
+      border-radius: 4px;
+
+      &:hover {
+        border-color: $hover-color;
+      }
+    }
+  }
+
+  &.filled input {
+    background-color: rgba($border-color, 0.1);
+    border: none;
+    border-bottom: 2px solid $border-color;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    
+    &:hover {
+      background-color: rgba($hover-color, 0.3);
+    }
+  }
+
+  &.standard input {
+    border: none;
+    border-bottom: 2px solid $border-color;
+
+    &:hover {
+      border-bottom-color: $hover-color;
+    }
+  }
+
+  // ERROR
+
+  &.errorField {
+    // Применяем ошибочный цвет для всех состояний input
+    label {
+      color: map.get($colors, error);
+    }
+
+    input {
+      border-color: map.get($colors, error);
+    }
+
+    // Стили для фокуса и ошибок
+    input:focus + label,
+    input.error:focus + label {
+      color: map.get($colors, error);
+      border-color: map.get($colors, error);
+    }
+
+    // Применение ошибок для всех вариантов
+    &.outlined input:focus {
+      border: 2px solid map.get($colors, error);
+    }
+
+    &.filled input:focus,
+    &.standard input:focus {
+      border-bottom: 2px solid map.get($colors, error);
+    }
+
+    span {
+      padding: 5px;
+      color: map.get($colors, error);
+    }
+  }
+
+  // COLOR
+
+  @each $name, $color in $colors {
+    &.#{$name} {
+      &.outlined.hasValue input,
+      &.outlined input:focus {
+        border-color: $color;
+      }
+
+      &.outlined input:focus + label,
+      &.outlined.hasValue label {
+        top: 0%;
+        padding: 4px;
+        transform: translateY(-50%);
+        background-color: white;
+        color: $color;
+      }
+
+      &.filled input:focus,
+      &.filled.hasValue input,
+      &.standard input:focus,
+      &.standard.hasValue input {
+        border-bottom: 2px solid $color;
+      }
+
+      &.filled input:focus + label,
+      &.filled.hasValue label,
+      &.standard input:focus + label,
+      &.standard.hasValue label {
+        top: 0%;
+        transform: translateY(0);
+        color: $color;
+      }
+    }
+  }
+
+  // SIZE
+
+  &.small {
+    width: 20ch;
+    height: 1.275em;
+    
+    label {
+      top: 14.5px;
+      left: 12px;
+    }
+
+    input {
+      padding: 14.5px 12px;
+      font-size: 0.775rem;
+    }
+
+    span {
+      font-size: 0.675rem;
+    }
+  }
+
+  &.medium {
+    width: 25ch;
+    height: 1.375em;
+
+    label {
+      top: 16.5px;
+      left: 14px;
+    }
+
+    input {
+      padding: 16.5px 14px;
+      font-size: 0.875rem;
+    }
+
+    span {
+      font-size: 0.775rem;
+    }
+  }
+
+  &.large {
+    width: 30ch;
+    height: 1.475em;
+
+    label {
+      top: 18.5px;
+      left: 16px;
+    }
+
+    input {
+      padding: 18.5px 16px;
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 0.875rem;
+    }
+  }
+
+  // FULLWIDTH
+
+  &.fullWidth {
+    width: 100%;
+  }
+}

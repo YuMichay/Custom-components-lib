@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // BASE
 
 button { 
@@ -80,7 +82,7 @@ $colors: (
     }
 
     &.contained:hover {
-      background-color: darken($color, 10%);
+      background-color: color.adjust($color, $lightness: -10%);
     }
 
     &.outlined {
@@ -88,7 +90,7 @@ $colors: (
     }
 
     &.outlined:hover {
-      border: 2px solid darken($color, 10%);
+      border: 2px solid color.adjust($color, $lightness: -10%);
       background-color: rgba($color, 0.3);
     }
   }
