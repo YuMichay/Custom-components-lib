@@ -9,7 +9,7 @@ const TextField: React.FC<TextFieldProps> = ({
   label = "Text field",
   helpText = "",
   placeholder = "",
-  onChange = () => console.log("Change"),
+  onChange,
   disabled = false,
   size = "medium",
   variant = "outlined",

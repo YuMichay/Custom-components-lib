@@ -6,7 +6,7 @@ import * as styles from "./Button.module.scss";
 const Button: React.FC<ButtonProps> = ({
   children = "Button",
   type = "button",
-  onClick = () => console.log("Button clicked"),
+  onClick,
   disabled = false,
   size = "medium",
   variant = "contained",

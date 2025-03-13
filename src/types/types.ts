@@ -3,6 +3,7 @@ import { ChangeEvent, MouseEvent, ReactNode } from "react";
 // GENERAL
 type Colors = "primary" | "secondary" | "success" | "error" | "info" | "warning";
 type Sizes = "small" | "medium" | "large";
+type Variants = "outlined" | "filled" | "standard";
 
 // BUTTON
 
@@ -24,7 +25,6 @@ export interface ButtonProps {
 // TEXTFIELD
 
 type TextFieldType = "text" | "password" | "email" | "number" | "search" | "tel" | "url";
-type TextFieldVariants = "outlined" | "filled" | "standard";
 
 export interface TextFieldProps {
   value?: string;
@@ -36,7 +36,7 @@ export interface TextFieldProps {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   size?: Sizes;
-  variant?: TextFieldVariants;
+  variant?: Variants;
   fullWidth?: boolean;
   maxLength?: number;
   required?: boolean;
@@ -47,15 +47,22 @@ export interface TextFieldProps {
 
 // SELECT
 
-type SelectVariants = "filled" | "outlined" | "standard";
-
 export interface SelectProps {
-  children?: ReactNode;
-  autoWidth?: boolean;
-  multiple?: boolean;
-  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
   value?: string;
-  variant?: SelectVariants;
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
+  options?: OptionProps[];
+  disabled?: boolean;
+  size?: Sizes;
+  color?: Colors;
+  fullWidth?: boolean;
+  required?: boolean;
+  label?: string;
+  variant?: Variants;
+}
+
+export interface OptionProps {
+  label: string;
+  value: string;
 }
 
 // CHECKBOX

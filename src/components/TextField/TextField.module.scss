@@ -82,7 +82,6 @@ $hover-color: #9d9d9d;
   // ERROR
 
   &.errorField {
-    // Применяем ошибочный цвет для всех состояний input
     label {
       color: map.get($colors, error);
     }
@@ -91,14 +90,12 @@ $hover-color: #9d9d9d;
       border-color: map.get($colors, error);
     }
 
-    // Стили для фокуса и ошибок
     input:focus + label,
     input.error:focus + label {
       color: map.get($colors, error);
       border-color: map.get($colors, error);
     }
 
-    // Применение ошибок для всех вариантов
     &.outlined input:focus {
       border: 2px solid map.get($colors, error);
     }
