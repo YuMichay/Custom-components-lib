@@ -68,14 +68,14 @@ export interface OptionProps {
 // CHECKBOX
 
 export interface CheckboxProps {
-  defaultChecked?: boolean;
-  disabled?: boolean;
   checked?: boolean;
+  onClick?: (event: MouseEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  required?: boolean;
+  label?: string;
   size?: Sizes;
   color?: Colors;
-  icon?: ReactNode;
-  checkedIcon?: ReactNode;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
 }
 
 // SWITCH
