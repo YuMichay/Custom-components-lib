@@ -69,7 +69,7 @@ export interface OptionProps {
 
 export interface CheckboxProps {
   checked?: boolean;
-  onClick?: (event: MouseEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   required?: boolean;
   label?: string;
@@ -80,14 +80,12 @@ export interface CheckboxProps {
 
 // SWITCH
 export interface SwitchProps {
-  defaultChecked?: boolean;
-  disabled?: boolean;
+  label?: string;
   checked?: boolean;
+  disabled?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: Sizes;
   color?: Colors;
-  icon?: ReactNode;
-  checkedIcon?: ReactNode;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 // MODAL

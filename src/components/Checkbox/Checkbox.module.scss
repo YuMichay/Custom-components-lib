@@ -23,9 +23,7 @@ $base-color: rgba(39, 39, 39, 0.87);
   font-weight: 500;
   line-height: 1.75;
   letter-spacing: 0.03em;
-  color: $base-color;
-  cursor: pointer;
-  
+  color: $base-color;  
 
   &.disabled {
     pointer-events: none;

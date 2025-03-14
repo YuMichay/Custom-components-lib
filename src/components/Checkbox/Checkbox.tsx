@@ -1,11 +1,11 @@
-import React, { MouseEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import { CheckboxProps } from "@/types/types";
 import * as styles from "./Checkbox.module.scss";
 
 const Checkbox: React.FC<CheckboxProps> = ({
   checked = false,
-  onClick,
+  onChange,
   disabled = false,
   required = false,
   label = "Checkbox",
@@ -15,11 +15,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(checked);
 
-  const handleClick = (event: MouseEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setIsChecked((prevState) => (prevState = !prevState));
 
-    if (onClick) {
-      onClick(event);
+    if (onChange) {
+      onChange(event);
     }
   };
 
@@ -30,7 +30,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <div
       className={`${styles["checkboxCustom"]} ${styles[size]} ${styles[color]} ${disabled ? styles["disabled"] : ""}`}
-      onClick={handleClick}
     >
       <label>{required ? `${label}*` : label}</label>
       <input
@@ -39,6 +38,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         name={name ? name : ""}
         disabled={disabled}
         required={required}
+        onChange={handleChange}
       />
     </div>
   );
