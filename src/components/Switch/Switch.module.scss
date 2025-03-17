@@ -34,6 +34,7 @@ $base-color: rgba(39, 39, 39, 0.37);
     background-color: $base-color;
     transition: 0.3s;
     border-radius: 24px;
+    cursor: pointer;
 
     &:before {
       content: "";

@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent, ReactNode } from "react";
 
 // GENERAL
 type Colors = "primary" | "secondary" | "success" | "error" | "info" | "warning";
-type Sizes = "small" | "medium" | "large";
+export type Sizes = "small" | "medium" | "large";
 type Variants = "outlined" | "filled" | "standard";
 
 // BUTTON
@@ -94,4 +94,9 @@ export interface ModalProps {
   open?: boolean;
   onClose?: () => void;
   children?: ReactNode;
+  size?: Sizes;
+  title?: string;
+  showCloseButton?: boolean;
+  backDropClickClose?: boolean;
+  showOpenModalButton?: boolean;
 }

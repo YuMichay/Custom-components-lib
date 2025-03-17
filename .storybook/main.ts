@@ -3,6 +3,7 @@ import path from "path";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-essentials",
@@ -11,10 +12,12 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-styling-webpack",
   ],
+
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
   },
+
   webpackFinal: async (config) => {
     if (config.module && config.module.rules) {
       config.module.rules.push({
@@ -25,6 +28,10 @@ const config: StorybookConfig = {
     }
 
     return config;
+  },
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 export default config;
