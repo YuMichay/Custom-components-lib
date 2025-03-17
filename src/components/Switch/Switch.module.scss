@@ -47,6 +47,10 @@ $base-color: rgba(39, 39, 39, 0.37);
       box-shadow: 0 0 2px 2px $base-color;
       cursor: pointer;
     }
+
+    &:hover:before {
+      box-shadow: 0 0 6px 6px $base-color;
+    }
   }
 
   label {
@@ -143,6 +147,10 @@ $base-color: rgba(39, 39, 39, 0.37);
 
       input:checked:before {
         background-color: $color;
+      }
+
+      input:hover:before {
+        box-shadow: 0 0 6px 6px rgba(darken($color, 40%), 0.4);
       }
     }
   }
