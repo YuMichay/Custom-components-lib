@@ -23,6 +23,7 @@ $base-color: rgba(39, 39, 39, 0.37);
   font-weight: 500;
   line-height: 1.75;
   letter-spacing: 0.03em;
+  margin: 20px;
 
   input {
     appearance: none;
@@ -150,7 +151,7 @@ $base-color: rgba(39, 39, 39, 0.37);
       }
 
       input:hover:before {
-        box-shadow: 0 0 6px 6px rgba(darken($color, 40%), 0.4);
+        box-shadow: 0 0 6px 6px rgba(color.adjust($color, $lightness: -40%), 0.4);
       }
     }
   }

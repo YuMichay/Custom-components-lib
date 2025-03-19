@@ -15,12 +15,13 @@ $hover-color: #9d9d9d;
 
 // BASE
 
-.textField {
+.customTextField {
   position: relative;
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  margin: 20px;
 
   label {
     position: absolute;
@@ -151,7 +152,7 @@ $hover-color: #9d9d9d;
 
   &.small {
     width: 20ch;
-    height: 1.275em;
+    min-height: 1.275em;
     
     label {
       top: 14.5px;
@@ -170,7 +171,7 @@ $hover-color: #9d9d9d;
 
   &.medium {
     width: 25ch;
-    height: 1.375em;
+    min-height: 1.375em;
 
     label {
       top: 16.5px;
@@ -189,7 +190,7 @@ $hover-color: #9d9d9d;
 
   &.large {
     width: 30ch;
-    height: 1.475em;
+    min-height: 1.475em;
 
     label {
       top: 18.5px;

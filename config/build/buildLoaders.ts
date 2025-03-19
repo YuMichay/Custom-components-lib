@@ -1,6 +1,5 @@
 import { ModuleOptions } from "webpack";
 
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshTypeScript from "react-refresh-typescript";
 
 import { BuildMode } from "./types/types";
@@ -23,13 +22,14 @@ export function buildLoaders(mode: BuildMode): ModuleOptions["rules"] {
   };
 
   const sassLoader = {
-    test: /\.s[ac]ss$/i,
+    test: /\.module\.s[ac]ss$/i,
     use: [
-      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      "style-loader",
       {
         loader: "css-loader",
         options: {
           modules: {
+            auto: /\.module\./,
             exportLocalsConvention: "as-is",
             localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]",
           },

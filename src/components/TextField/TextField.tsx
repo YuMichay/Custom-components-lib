@@ -42,13 +42,13 @@ const TextField: React.FC<TextFieldProps> = ({
     setIsTouched(true);
   };
 
-  const isValid = !required || (required && hasValue);
+  const isRequired = !required || (required && hasValue);
 
   return (
     <div
-      className={`${styles.textField} ${styles[variant]} ${error || (!isValid && isTouched) ? styles["error"] : styles[color]} ${styles[size]} ${
+      className={`${styles["customTextField"]} ${styles[variant]} ${error || (!isRequired && isTouched) ? styles["error"] : styles[color]} ${styles[size]} ${
         fullWidth ? styles.fullWidth : ""
-      } ${error || (!isValid && isTouched) ? styles.errorField : ""} ${disabled ? styles.disabled : ""} ${
+      } ${error || (!isRequired && isTouched) ? styles.errorField : ""} ${disabled ? styles.disabled : ""} ${
         hasValue ? styles.hasValue : ""
       }`}
     >

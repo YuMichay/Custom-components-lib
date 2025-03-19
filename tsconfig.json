@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "outDir": "custom-components-lib-yumi",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
@@ -18,6 +21,7 @@
     "compilerOptions": {
       "module": "CommonJS"
     },
-    "include": ["src/global.d.ts"]
+    "include": ["src/global.d.ts"],
+    "exclude": ["node_modules", "storybook-static"]
   },
 }

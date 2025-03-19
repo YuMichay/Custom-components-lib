@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
     <>
       <div className={`${styles[size]}`}>
         {showOpenModalButton && !isOpened && (
-          <button type="button" onClick={handleClick}>
+          <button type="button" onClick={handleClick} className={styles["customModalButton"]}>
             Open Modal
           </button>
         )}

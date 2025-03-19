@@ -1,6 +1,6 @@
 import webpack from "webpack";
 import { buildDevServer } from "./buildDevServer";
-import { buildPlugins } from "./buildPugins";
+import { buildPlugins } from "./buildPlugins";
 import { buildLoaders } from "./buildLoaders";
 import { buildResolvers } from "./buildResolvers";
 import { BuildOptions } from "./types/types";
@@ -19,15 +19,24 @@ export function buildWebpack({ mode, paths }: BuildOptions): webpack.Configurati
     },
     resolve: buildResolvers(),
     externals: {
-      react: "react",
-      "react-dom": "react-dom",
+      react: {
+        commonjs: "react",
+        commonjs2: "react",
+        amd: "react",
+        root: "React",
+      },
+      "react-dom": {
+        commonjs: "react-dom",
+        commonjs2: "react-dom",
+        amd: "react-dom",
+        root: "ReactDOM",
+      },
     },
     output: {
       path: paths.output,
-      filename: "[name].[contenthash].js",
-      library: "Custom-components-lib",
+      filename: "index.js",
+      library: "custom-components-lib-yumi",
       libraryTarget: "umd",
-      libraryExport: "default",
       umdNamedDefine: true,
       clean: true,
     },

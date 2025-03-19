@@ -6,7 +6,10 @@ import * as styles from "./Select.module.scss";
 const Select: React.FC<SelectProps> = ({
   value = "",
   onChange,
-  options = [],
+  options = [
+    { label: "First Option", value: "first" },
+    { label: "Second Option", value: "second" },
+  ],
   disabled = false,
   size = "medium",
   color = "primary",

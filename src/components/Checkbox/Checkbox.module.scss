@@ -24,6 +24,7 @@ $base-color: rgba(39, 39, 39, 0.87);
   line-height: 1.75;
   letter-spacing: 0.03em;
   color: $base-color;  
+  margin: 20px;
 
   &.disabled {
     pointer-events: none;
@@ -61,61 +62,61 @@ $base-color: rgba(39, 39, 39, 0.87);
       }
     }
   }
-}
+  
+  // SIZE
 
-// SIZE
+  &.small {
+    min-width: 100px;
+    font-size: 0.775rem;
 
-.small {
-  min-width: 100px;
-  font-size: 0.775rem;
+    input {
+      width: 14px;
+      height: 14px;
 
-  input {
-    width: 14px;
-    height: 14px;
-
-    &:checked {
-      &::after {
-        width: 3px;
-        height: 7px;
+      &:checked {
+        &::after {
+          width: 3px;
+          height: 7px;
+        }
       }
     }
   }
-}
 
-.medium {
-  min-width: 120px;
-  font-size: 0.875rem;
+  &.medium {
+    min-width: 120px;
+    font-size: 0.875rem;
 
-  input {
-    width: 16px;
-    height: 16px;
+    input {
+      width: 16px;
+      height: 16px;
 
-    &:checked {
-      &::after {
-        width: 5px;
-        height: 9px;
+      &:checked {
+        &::after {
+          width: 5px;
+          height: 9px;
+        }
       }
     }
   }
-}
 
-.large {
-  min-width: 140px;
-  font-size: 1rem;
+  &.large {
+    min-width: 140px;
+    font-size: 1rem;
 
-  input {
-    width: 20px;
-    height: 20px;
+    input {
+      width: 20px;
+      height: 20px;
 
-    &:checked {
-      &::after {
-        left: 10px;
-        width: 6px;
-        height: 12px;
+      &:checked {
+        &::after {
+          left: 10px;
+          width: 6px;
+          height: 12px;
+        }
       }
     }
-  }
-} 
+  } 
+}
 
 // COLOR
 

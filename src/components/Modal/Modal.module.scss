@@ -5,7 +5,7 @@ $overlay-color: rgb(39, 39, 39);
 
 // BASE
 
-button { 
+.customModalButton { 
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@ button {
 // SIZES
 
 .small {
-  button {
+  .customModalButton {
     min-width: 58px;
     height: 30.6px;
     padding: 4px 6px;
@@ -73,7 +73,7 @@ button {
 }
 
 .medium {
-  button {
+  .customModalButton {
     min-width: 64px;
     height: 36.5px;
     padding: 6px 8px;
@@ -89,7 +89,7 @@ button {
 }
 
 .large {
-  button {
+  .customModalButton {
     min-width: 72px;
     height: 42.4px;
     padding: 8px 10px;

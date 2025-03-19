@@ -11,7 +11,11 @@ $colors: (
 
 // BASE
 
-button { 
+.customButtonWrapper {
+  margin: 20px;
+}
+
+.customButton { 
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -43,31 +47,31 @@ button {
 
 // VARIANT
 
-.text, .contained {
+.customButton.text, .customButton.contained {
   border: none;
 }
 
-.text, .outlined {
+.customButton.text, .customButton.outlined {
   background-color: transparent;
 }
 
-.text:hover {
+.customButton.text:hover {
   background-color: rgba(74, 74, 74, 0.4);
 }
 
-.contained:hover {
+.customButton.contained:hover {
   color: white;
   background-color: rgb(113, 113, 113);
   box-shadow: 0px 5px 10px -5px #000000, 5px 5px 10px 5px rgba(0,0,0,0);
   -webkit-box-shadow: 0px 5px 10px -5px #000000, 5px 5px 10px 5px rgba(0,0,0,0); 
 }
 
-.outlined {
+.customButton.outlined {
   border: 2px solid;
   border-color: rgb(113, 113, 113);
 }
 
-.outlined:hover {
+.customButton.outlined:hover {
   border-color: rgb(74, 74, 74);
   background-color: rgba(113, 113, 113, 0.3);
 }
@@ -76,43 +80,45 @@ button {
 
 @each $name, $color in $colors {
   .#{$name} {
-    &.text,
-    &.outlined {
-      color: $color;
-    }
-
-    &.text:hover {
-      background-color: rgba($color, 0.4);
-    }
-
-    &.contained {
-      color: white;
-      background-color: $color;
-    }
-
-    &.contained:hover {
-      background-color: color.adjust($color, $lightness: -10%);
-    }
-
-    &:disabled {
-      &.contained:hover {
+    &.customButton {
+      &.text,
+      &.outlined {
+        color: $color;
+      }
+  
+      &.text:hover {
+        background-color: rgba($color, 0.4);
+      }
+  
+      &.contained {
+        color: white;
         background-color: $color;
       }
-    }
-
-    &.outlined {
-      border-color: $color;
-    }
-
-    &.outlined:hover {
-      border: 2px solid color.adjust($color, $lightness: -10%);
-      background-color: rgba($color, 0.3);
-    }
-
-    &:disabled {
-      &.outlined:hover {
+  
+      &.contained:hover {
+        background-color: color.adjust($color, $lightness: -10%);
+      }
+  
+      &:disabled {
+        &.contained:hover {
+          background-color: $color;
+        }
+      }
+  
+      &.outlined {
         border-color: $color;
-        background-color: transparent;
+      }
+  
+      &.outlined:hover {
+        border: 2px solid color.adjust($color, $lightness: -10%);
+        background-color: rgba($color, 0.3);
+      }
+  
+      &:disabled {
+        &.outlined:hover {
+          border-color: $color;
+          background-color: transparent;
+        }
       }
     }
   }
@@ -120,21 +126,21 @@ button {
 
 // SIZE
 
-.small {
+.customButton.small {
   min-width: 58px;
   height: 30.6px;
   padding: 4px 6px;
   font-size: 0.675rem;
 }
 
-.medium {
+.customButton.medium {
   min-width: 64px;
   height: 36.5px;
   padding: 6px 8px;
   font-size: 0.875rem;
 }
 
-.large {
+.customButton.large {
   min-width: 72px;
   height: 42.4px;
   padding: 8px 10px;
@@ -143,6 +149,6 @@ button {
 
 // FULLWIDTH
 
-.fullWidth {
+.customButton.fullWidth {
   width: 100%;
 }

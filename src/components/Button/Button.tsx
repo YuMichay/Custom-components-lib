@@ -19,14 +19,16 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled || loading}
-      className={`${styles[variant]} ${styles[color]} ${styles[size]} ${fullWidth ? styles["fullWidth"] : ""}`}
-    >
-      {children}
-    </button>
+    <div className={styles["customButtonWrapper"]}>
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled || loading}
+        className={`${styles["customButton"]} ${styles[variant]} ${styles[color]} ${styles[size]} ${fullWidth ? styles["fullWidth"] : ""}`}
+      >
+        {children}
+      </button>
+    </div>
   );
 };
 
