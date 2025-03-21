@@ -1,0 +1,138 @@
+@use "sass:color";
+
+$colors: (
+  primary: #90caf9,
+  secondary: #ce93d8,
+  success: #66bb6a,
+  error: #f44336,
+  info: #e0ce28,
+  warning: #f47c05
+);
+
+$base-color: rgba(39, 39, 39, 0.87);
+
+// BASE
+
+.checkboxCustom {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  color: $base-color;  
+  margin: 20px;
+
+  &.disabled {
+    pointer-events: none;
+
+    label, input {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
+  label {
+    pointer-events: none;
+  }
+
+  input {
+    appearance: none;
+    border: 2px solid $base-color;
+    border-radius: 4px;
+    margin-right: 14px;
+    cursor: pointer;
+    pointer-events: auto;
+
+    &:checked {
+      background-color: $base-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 5px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 1;
+      }
+    }
+  }
+  
+  // SIZE
+
+  &.small {
+    min-width: 100px;
+    font-size: 0.775rem;
+
+    input {
+      width: 14px;
+      height: 14px;
+
+      &:checked {
+        &::after {
+          width: 3px;
+          height: 7px;
+        }
+      }
+    }
+  }
+
+  &.medium {
+    min-width: 120px;
+    font-size: 0.875rem;
+
+    input {
+      width: 16px;
+      height: 16px;
+
+      &:checked {
+        &::after {
+          width: 5px;
+          height: 9px;
+        }
+      }
+    }
+  }
+
+  &.large {
+    min-width: 140px;
+    font-size: 1rem;
+
+    input {
+      width: 20px;
+      height: 20px;
+
+      &:checked {
+        &::after {
+          left: 10px;
+          width: 6px;
+          height: 12px;
+        }
+      }
+    }
+  } 
+}
+
+// COLOR
+
+@each $name, $color in $colors {
+  .#{$name} {
+    input:checked {
+      border-color: $color;
+      background-color: $color;
+    }
+
+    input:not(:checked):hover {
+      background-color: color.change($color, $alpha: 0.5);
+    }
+
+    input:hover {
+      box-shadow: 2px 0px 10px 5px color.change($color, $alpha: 0.5);
+    }
+  }
+}

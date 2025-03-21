@@ -1,0 +1,10 @@
+node_modules
+husky
+.storybook
+storybook-static
+*.log
+*.md
+tests
+__tests__
+coverage
+*.map
