@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         onClick={onClick}
         disabled={disabled || loading}
-        className={`${styles["customButton"]} ${styles[variant]} ${styles[color]} ${styles[size]} ${fullWidth ? styles["fullWidth"] : ""}`}
+        className={`${styles["customButton"]} ${styles[variant]} ${styles[color]} ${styles[size]}${fullWidth ? " " + styles["fullWidth"] : ""}`}
       >
         {children}
       </button>

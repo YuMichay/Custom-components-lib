@@ -52,7 +52,7 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div
       ref={selectRef}
-      className={`${styles["selectWrapper"]} ${styles[variant]} ${styles[size]} ${styles[color]} ${fullWidth ? styles["fullWidth"] : ""} ${disabled ? styles["disabled"] : ""} ${isOpenSelect ? styles["openSelect"] : ""}`}
+      className={`${styles["selectWrapper"]} ${styles[variant]} ${styles[size]} ${styles[color]}${fullWidth ? " " + styles["fullWidth"] : ""}${disabled ? " " + styles["disabled"] : ""}${isOpenSelect ? " " + styles["openSelect"] : ""}`}
       onClick={handleOpenSelect}
     >
       <label

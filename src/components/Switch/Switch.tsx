@@ -27,7 +27,7 @@ const Switch: React.FC<SwitchProps> = ({
 
   return (
     <div
-      className={`${styles["switchCustom"]} ${styles[size]} ${isChecked ? styles[color] : ""} ${disabled ? styles["disabled"] : ""}`}
+      className={`${styles["switchCustom"]} ${styles[size]}${isChecked ? " " + styles[color] : ""}${disabled ? " " + styles["disabled"] : ""}`}
     >
       <label>{label ? label : ""}</label>
       <input type="checkbox" checked={isChecked} disabled={disabled} onChange={handleChange} />

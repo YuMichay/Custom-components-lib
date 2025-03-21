@@ -29,7 +29,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <div
-      className={`${styles["checkboxCustom"]} ${styles[size]} ${styles[color]} ${disabled ? styles["disabled"] : ""}`}
+      className={`${styles["checkboxCustom"]} ${styles[size]} ${styles[color]}${disabled ? " " + styles["disabled"] : ""}`}
     >
       <label>{required ? `${label}*` : label}</label>
       <input

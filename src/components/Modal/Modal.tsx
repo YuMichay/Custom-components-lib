@@ -32,16 +32,20 @@ const Modal: React.FC<ModalProps> = ({
 
   return ReactDOM.createPortal(
     <>
-      <div className={`${styles[size]}`}>
+      <div className={`${styles[size]}`} data-testid={"custom-modal-wrapper"}>
         {showOpenModalButton && !isOpened && (
           <button type="button" onClick={handleClick} className={styles["customModalButton"]}>
             Open Modal
           </button>
         )}
         {isOpened && (
-          <div className={styles["customModal"]}>
+          <div className={styles["customModal"]} data-testid={"custom-modal"}>
             {showCloseButton && (
-              <div className={styles["closeModalButton"]} onClick={handleCloseClick}>
+              <div
+                className={styles["closeModalButton"]}
+                onClick={handleCloseClick}
+                data-testid={"close-button-modal"}
+              >
                 &#x2715;
               </div>
             )}
@@ -50,7 +54,13 @@ const Modal: React.FC<ModalProps> = ({
           </div>
         )}
       </div>
-      {isOpened && <div className={styles["overlay"]} onClick={handleCloseClick}></div>}
+      {isOpened && (
+        <div
+          className={styles["overlay"]}
+          onClick={handleCloseClick}
+          data-testid={"overlay-modal"}
+        ></div>
+      )}
     </>,
     document.body,
   );

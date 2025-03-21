@@ -46,10 +46,10 @@ const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <div
-      className={`${styles["customTextField"]} ${styles[variant]} ${error || (!isRequired && isTouched) ? styles["error"] : styles[color]} ${styles[size]} ${
-        fullWidth ? styles.fullWidth : ""
-      } ${error || (!isRequired && isTouched) ? styles.errorField : ""} ${disabled ? styles.disabled : ""} ${
-        hasValue ? styles.hasValue : ""
+      className={`${styles["customTextField"]} ${styles[variant]} ${error || (!isRequired && isTouched) ? styles["error"] : styles[color]} ${styles[size]}${
+        fullWidth ? " " + styles.fullWidth : ""
+      }${error || (!isRequired && isTouched) ? " " + styles.errorField : ""}${disabled ? " " + styles.disabled : ""}${
+        hasValue ? " " + styles.hasValue : ""
       }`}
     >
       <input
